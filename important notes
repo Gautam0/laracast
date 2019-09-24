@@ -1,0 +1,7 @@
+// Episode 7
+php artisan make:migration rollback
+php artisan make:migration fresh
+
+
+// Episode 8
+Project::all()->map->title;
