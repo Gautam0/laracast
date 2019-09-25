@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 24, 2019 at 02:05 PM
+-- Generation Time: Sep 25, 2019 at 02:12 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.2.22
 
@@ -57,7 +57,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2014_10_12_000000_create_users_table', 1),
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
-(4, '2019_09_20_105353_create_projects_table', 2);
+(4, '2019_09_20_105353_create_projects_table', 2),
+(5, '2019_09_25_111042_create_tasks_table', 3);
 
 -- --------------------------------------------------------
 
@@ -92,7 +93,31 @@ CREATE TABLE `projects` (
 INSERT INTO `projects` (`id`, `title`, `description`, `created_at`, `updated_at`) VALUES
 (1, 'First project title', 'First project description', '2019-09-20 23:51:20', '2019-09-20 23:51:20'),
 (2, 'Second project title 2', 'Second project description  22', '2019-09-20 23:52:39', '2019-09-21 02:10:59'),
-(3, 'Third titlle', 'Third Description', '2019-09-21 00:37:27', '2019-09-21 00:37:27');
+(3, 'Third titlle', 'Third Description', '2019-09-21 00:37:27', '2019-09-21 00:37:27'),
+(8, 'title', 'description', '2019-09-25 00:46:31', '2019-09-25 00:46:31');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tasks`
+--
+
+CREATE TABLE `tasks` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `project_id` int(10) UNSIGNED NOT NULL,
+  `description` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `completed` tinyint(1) NOT NULL DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `tasks`
+--
+
+INSERT INTO `tasks` (`id`, `project_id`, `description`, `completed`, `created_at`, `updated_at`) VALUES
+(1, 1, 'first id task', 0, NULL, '2019-09-25 06:10:56'),
+(2, 1, 'first id task 2', 0, NULL, '2019-09-25 06:10:51');
 
 -- --------------------------------------------------------
 
@@ -140,6 +165,12 @@ ALTER TABLE `projects`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tasks`
+--
+ALTER TABLE `tasks`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -160,13 +191,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `tasks`
+--
+ALTER TABLE `tasks`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
