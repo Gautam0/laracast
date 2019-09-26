@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2019 at 02:12 PM
+-- Generation Time: Sep 26, 2019 at 01:37 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.2.22
 
@@ -116,8 +116,13 @@ CREATE TABLE `tasks` (
 --
 
 INSERT INTO `tasks` (`id`, `project_id`, `description`, `completed`, `created_at`, `updated_at`) VALUES
-(1, 1, 'first id task', 0, NULL, '2019-09-25 06:10:56'),
-(2, 1, 'first id task 2', 0, NULL, '2019-09-25 06:10:51');
+(1, 1, 'first id task', 0, NULL, '2019-09-26 04:18:58'),
+(2, 1, 'first id task 2', 0, NULL, '2019-09-26 05:27:06'),
+(3, 1, 'another task', 0, '2019-09-26 04:37:54', '2019-09-26 05:21:01'),
+(4, 1, 'task', 0, '2019-09-26 04:38:14', '2019-09-26 05:27:03'),
+(5, 1, 'checking', 1, '2019-09-26 04:53:24', '2019-09-26 05:26:01'),
+(6, 2, '2nd project task', 0, '2019-09-26 04:54:59', '2019-09-26 04:54:59'),
+(7, 1, 'another try', 0, '2019-09-26 05:09:44', '2019-09-26 05:09:52');
 
 -- --------------------------------------------------------
 
@@ -203,7 +208,7 @@ ALTER TABLE `projects`
 -- AUTO_INCREMENT for table `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
